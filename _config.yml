@@ -1,0 +1,60 @@
+# Jekyll Configuration for EDUNEX (DevNexus-code/EduNex)
+# Excludes generated dependencies, backend modules, build folders, and package directories
+# to eliminate Jekyll Liquid syntax parsing errors during GitHub Pages builds.
+
+title: EDUNEX
+description: Smart Academic Administration & Campus Management Platform
+
+# Markdown processor settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Directory and file exclusions
+exclude:
+  # Package managers and dependencies
+  - node_modules
+  - server/node_modules
+  - client/node_modules
+  - "**/node_modules/**"
+  - vendor
+  - .bundle
+  - Gemfile
+  - Gemfile.lock
+
+  # Build outputs and temporary artifacts
+  - dist
+  - server/dist
+  - client/dist
+  - coverage
+  - .vite-temp
+  - "**/.vite-temp/**"
+
+  # Version control and agent metadata
+  - .git
+  - .github
+  - .agents
+  - .refact
+
+  # Application source trees (backend & client source)
+  - server
+  - client
+  - scripts
+
+  # Configurations and project datasets
+  - package.json
+  - package-lock.json
+  - docker-compose.yml
+  - firebase.json
+  - manifest.json
+  - skills-lock.json
+  - .env
+  - .env.example
+  - "*.csv"
+  - "*.jsonl"
+
+# Explicit inclusions for documentation
+include:
+  - docs
+  - README.md

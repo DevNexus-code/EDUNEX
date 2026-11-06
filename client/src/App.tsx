@@ -115,7 +115,7 @@ const RoleDashboardRedirect: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           {/* Public Auth Routes */}
           <Route
