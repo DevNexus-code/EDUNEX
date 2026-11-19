@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
-    "build": "node -e \"const fs=require('fs'),path=require('path'),cp=require('child_process');function bin(p){for(const b of [path.resolve(p),path.resolve('..',p)])if(fs.existsSync(b))return b;throw new Error('Missing build executable: '+p)}let r=cp.spawnSync(process.execPath,[bin('node_modules/typescript/bin/tsc'),'-p','tsconfig.json'],{stdio:'inherit'});if(r.status)process.exit(r.status);r=cp.spawnSync(process.execPath,[bin('node_modules/vite/bin/vite.js'),'build'],{stdio:'inherit'});process.exit(r.status||0)\"",
+    "build": "node -e \"const fs=require('fs'),path=require('path'),cp=require('child_process');function bin(p){for(const b of [path.resolve(p),path.resolve('..',p)])if(fs.existsSync(b))return b;throw new Error('Missing build executable: '+p)}let r=cp.spawnSync(process.execPath,[bin('node_modules/typescript/bin/tsc'),'-p','tsconfig.json'],{stdio:'inherit'});if(r.status)process.exit(r.status);r=cp.spawnSync(process.execPath,[bin('node_modules/vite/bin/vite.js'),'build'],{stdio:'inherit'});if(r.status)process.exit(r.status);const src=path.resolve('dist'),dest=path.resolve('../dist');fs.rmSync(dest,{recursive:true,force:true});fs.cpSync(src,dest,{recursive:true});process.exit(0)\"",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
     "vercel-build": "npm run build"
