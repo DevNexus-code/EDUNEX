@@ -13,7 +13,7 @@
     "dev:client": "npm run dev --workspace=client",
     "build": "npm run build --workspaces --if-present",
     "build:client": "npm run build --workspace=client",
-    "vercel-build": "node node_modules/typescript/bin/tsc -p client/tsconfig.json && cd client && node ../node_modules/vite/bin/vite.js build",
+    "vercel-build": "npm run build --workspace=client",
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "db:validate": "npm run prisma --workspace=server -- validate",
