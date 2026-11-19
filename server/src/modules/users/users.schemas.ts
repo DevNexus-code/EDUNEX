@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Role } from '@prisma/client';
+import { Role } from '../../common/db/prisma.js';
 
 export const createUserSchema = z.object({
   email: z.string().email('Please provide a valid corporate email address.').trim().toLowerCase(),
